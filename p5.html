@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+ <head> <title>signup page</title></head>
+
+ <body>
+ <div id="sp">
+  <h1>Sign Up</h1><br>
+  <form name="fm" onsubmit="return(check())">
+   First name <br><input type="text" id="fn" name="fn" ></input><br><br><br>
+   Last name <br><input type="text" id="ln" name="ln"></input><br><br><br>
+   DOB(dd/mm/yyyy) <br><input type="date" id="date" name="date"></input><br><br><br>
+   Mobile no. <br><input type="text" id="mob" name="mob"></input><br><br><br>
+   Email <br><input type="email" name="email"></input><br><br>
+  <h2 id="err"></h2>
+  <input type="submit" value="Sign Up"></input>
+  </form>
+ </div>
+ </body>
+<script>
+ function check()
+ {
+   if(document.fm.fn.value=="")
+    {
+	document.getElementById("err").innerHTML="Fill First name";
+	return false;
+    }
+
+if(document.fm.ln.value=="")
+    {
+	document.getElementById("err").innerHTML="Fill Last name";
+	return false;
+    }
+
+   if(document.fm.date.value=="")
+    {
+	document.getElementById("err").innerHTML="Fill date";
+	return false;
+    }
+
+   if(document.fm.mob.value=="")
+    {
+	document.getElementById("err").innerHTML="Fill Mobile number";
+	return false;
+    }
+
+   if(document.fm.email.value=="")
+    {
+	document.getElementById("err").innerHTML="Fill email";
+	return false;
+    }
+
+   
+   
+   var fname=document.getElementById("fn").value;
+    if( !/^[a-zA-Z]+$/.test(fname))
+    {
+	document.getElementById("err").innerHTML="Invalid First name";
+      return false;
+    }
+   
+   var lname=document.getElementById("ln").value;
+    if(!/^[a-zA-Z]+$/.test(lname))
+    {
+	document.getElementById("err").innerHTML="Invalid Last name";
+      return false;
+    }   
+
+   var mob=document.getElementById("mob").value;
+   if(mob.length!=10 && !/^[0-9]+$/.test(mob))
+    {
+       document.getElementById("err").innerHTML="Invalid Mobile number";
+      return false;
+    }
+
+  return true;
+ }
+</script>
+
+<style>
+  #sp{
+        text-align:center;
+        color:rgb(40,120,180);
+	background-color:rgb(220,220,220);
+     }
+ #err{
+       color:red;
+     }
+     
+  
+</html>
+

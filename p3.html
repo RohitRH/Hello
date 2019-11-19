@@ -1,0 +1,24 @@
+<DOCTYPE html>
+<html>
+ <head>
+   <title>p3</title>
+ </head>
+ <body>
+   <h2>COUNTER </h2>
+  <textarea rows="5" cols="50" id="text"></textarea><br>
+  <input type="button" value="submit" onclick="count()"></input>
+ </body>
+
+ <script>
+    function count()
+     {
+        var text=document.getElementById("text").value;
+	var no_lines=text.split(/\n+/).length;
+	var no_words=text.split(/\s+/).length;
+	var no_chars=text.length-(no_lines-1);
+	
+	alert("no. of lines="+no_lines+"\nno. of words="+no_words+"\nno. of chars="+no_chars);
+     }
+ </script>
+</html>
+	

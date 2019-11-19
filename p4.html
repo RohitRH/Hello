@@ -1,0 +1,44 @@
+<DOCTYPE html>
+<html>
+ <head>
+   <title>p4</title>
+ </head>
+ <body>
+   <h2>COUNTRY-CAPITAL </h2>
+   <h2>select country</h2>
+   
+    <select id="cnt" onChange="display()">
+	<option>Select</option>
+	<option>India</option>
+	<option>China</option>
+	<option>US</option>
+	<option>UK</option>
+	<option>Russia</option>
+    </select>
+
+    <h2 id="cap"></h2>
+ </body>
+
+<script>
+  function display()
+   {
+	var cnt=document.getElementById("cnt").value;
+	switch(cnt)
+	{
+	 case "India":document.getElementById("cap").innerHTML="Delhi";
+			break;
+	 case "China":document.getElementById("cap").innerHTML="Beiging";
+			break;
+	 case "US":document.getElementById("cap").innerHTML="Washington DC";
+			break;
+	 case "UK":document.getElementById("cap").innerHTML="London";
+			break;
+	 case "Russia":document.getElementById("cap").innerHTML="Moscow";
+			break;
+        }
+	
+	document.getElementById("cap").style.cssText="color:blue;font-size:25px;font-weight:bold";
+   }
+</script>
+</html>
+
