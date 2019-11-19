@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<title>CALCULATOR</title>
+<body>
+
+<center>
+
+<style>
+th,td,table{
+border-spacing:10px;
+}
+</style>
+
+<form name="calc">
+
+<table style="width:400px;">
+
+<tr>
+<td colspan="3"><input type="text" id="text"></td>
+<td><input type="button" value="C" onclick="calc.text.value =''"></td>
+</tr>
+
+<tr>
+<td><input type="button" value="1" onclick="calc.text.value +='1'"></td>
+<td><input type="button" value="2" onclick="calc.text.value +='2'"></td>
+<td><input type="button" value="3" onclick="calc.text.value +='3'"></td>
+<td><input type="button" value="+" onclick="calc.text.value +='+'"></td>
+</tr>
+
+<tr>
+<td><input type="button" value="4" onclick="calc.text.value +='4'"></td>
+<td><input type="button" value="5" onclick="calc.text.value +='5'"></td>
+<td><input type="button" value="6" onclick="calc.text.value +='6'"></td>
+<td><input type="button" value="-" onclick="calc.text.value +='1-'"></td>
+</tr>
+
+<tr>
+<td><input type="button" value="7" onclick="calc.text.value +='7'"></td>
+<td><input type="button" value="8" onclick="calc.text.value +='8'"></td>
+<td><input type="button" value="9" onclick="calc.text.value +='9'"></td>
+<td><input type="button" value="*" onclick="calc.text.value +='*'"></td>
+</tr>
+
+<tr>
+<td><input type="button" value="." onclick="calc.text.value +='.'"></td>
+<td><input type="button" value="0" onclick="calc.text.value +='0'"></td>
+<td><input type="button" value="=" onclick="calc.text.value =eval(calc.text.value)"></td>
+<td><input type="button" value="/" onclick="calc.text.value +='/'"></td>
+</tr>
+
+<tr>
+<td><input type="button" value="$" onclick="calc.text.value =calc.text.value*'71.72'"></td>
+<td><input type="button" value="¥" onclick="calc.text.value =calc.text.value*'0.68'"></td>
+<td><input type="button" value="£" onclick="calc.text.value =calc.text.value*'87.93'"></td>
+<td><input type="button" value="€" onclick="calc.text.value =calc.text.value*'79.65'"></td>
+</tr>
+
+</table>
+
+</cnter>
+</form>
+
+</body>
+</html> 
