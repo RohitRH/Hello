@@ -1,0 +1,82 @@
+﻿html {
+    background-color: aquamarine;
+    font-family: Impact, Charcoal, sans-serif;
+    padding: 0 20px;
+    font-size: 20px;
+    color: cadetblue;
+}
+
+h2 {
+    color: darkslateblue;
+    font-size: 30px;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+input,textarea {
+    width: 40%;
+    border: 1px solid white;
+    background-color: whitesmoke;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.abc:after {
+    content: "*";
+    font-weight: bold;
+    color:red;
+}
+
+    input:focus {
+        background-color: white;
+    }
+
+    input:hover {
+        background-color: white;
+        border-color:yellow;
+    }
+
+    textarea:focus {
+        background-color: white;
+    }
+
+    textarea:hover {
+        background-color: white;
+        border-color: yellow;
+    }
+
+    #submit:hover {
+        border-color: cadetblue;
+        background-color:deepskyblue;
+    }
+
+textarea{
+    height:50px;
+}
+
+#messege{
+    color:red;
+}
+
+#submit {
+    background-color: lightblue;
+    height: 35px;
+    font-size: 25px;
+    width: 20%;
+    color:black;
+    border: 0.5px solid lightskyblue;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.signup
+{
+    text-align:center;
+    background-color:lightgrey;
+    position:absolute;
+    margin-left:40px;
+    width:750px;
+    left:30%;
+    margin-right:100px;
+    margin-top:40px;
+   margin-bottom:40px;
+
+}
