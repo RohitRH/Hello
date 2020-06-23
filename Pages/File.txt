@@ -2,8 +2,8 @@
         public IActionResult Upload(int id,[FromBody]Files uploadedFiles)
         {
             var allowed = new[] { "pdf","docx","doc"};
-            
-            if(uploadedFiles.Doc1!=null)
+
+            /*if(uploadedFiles.Doc1!=null)
             if (!CheckFile(uploadedFiles.Doc1, allowed))
             {
                 return BadRequest( new { status = 400 , message = "Invalid File Format Doc1"});
@@ -21,12 +21,40 @@
                 {
                     return BadRequest(new { status = 400, message = "Invalid File Format Doc2" });
                 }
+            }*/
+
+            var propertinfos = uploadedFiles.GetType().GetProperties();
+            foreach (var item in propertinfos)
+            {
+                if (!(item.PropertyType.IsGenericType))
+                {
+                    var Pvalue = item.GetValue(uploadedFiles);
+                    if (Pvalue != null)
+                        if (!CheckFile(Convert.ToString(Pvalue), allowed))
+                        {
+                            return BadRequest("Ivalid");
+                        }
+                }
+                else 
+                {
+                    var Pvalue = item.GetValue(uploadedFiles) as List<string>;
+                    if(Pvalue!=null)
+                    foreach (var x in Pvalue)
+                    {
+                        if (!CheckFile(Convert.ToString(x), allowed))
+                        {
+                            return BadRequest("Ivalid");
+                        }
+                    }
+                }
+
             }
+
             string uploadsFolder = hostingEnvironment.ContentRootPath;
             uploadsFolder = Path.Combine(uploadsFolder, "Files");
             uploadsFolder = uploadsFolder + "\\user" + id;
             Directory.CreateDirectory(uploadsFolder);
-            if(uploadedFiles.Doc1!=null)
+            /*if(uploadedFiles.Doc1!=null)
             storefile(uploadedFiles.Doc1,uploadsFolder);
             if(uploadedFiles.Doc2!=null)
             storefile(uploadedFiles.Doc2,uploadsFolder);
@@ -36,6 +64,27 @@
             foreach (var item in uploadedFiles.Docs)
             {
                 storefile(item,path);
+            }*/
+            foreach (var item in propertinfos)
+            {
+                if (!(item.PropertyType.IsGenericType))
+                {
+                    var Pvalue = item.GetValue(uploadedFiles);
+                    if(Pvalue!=null)
+                    storefile(Convert.ToString(Pvalue),uploadsFolder);
+                }
+                else
+                {
+                    var Pvalue = item.GetValue(uploadedFiles) as List<string>;
+                        if(Pvalue!=null)
+                        foreach (var x in Pvalue)
+                        {
+                            string path = uploadsFolder + "\\Details";
+                            Directory.CreateDirectory(path);
+                            storefile(Convert.ToString(x),path);
+                        }
+                }
+
             }
             return Ok("Created");
         }
